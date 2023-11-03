@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  authservice.api:
+    image: ${DOCKER_REGISTRY-}authserviceapi
+    build:
+      context: .
+      dockerfile: AuthService.Api/Dockerfile
+
+  gateway.api:
+    image: ${DOCKER_REGISTRY-}gatewayapi
+    build:
+      context: .
+      dockerfile: Gateway.Api/Dockerfile
+
+
+  visitservice.api:
+    image: ${DOCKER_REGISTRY-}visitserviceapi
+    build:
+      context: .
+      dockerfile: VisitService.Api/Dockerfile
+

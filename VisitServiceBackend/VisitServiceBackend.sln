@@ -5,11 +5,15 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Api", "AuthService.Api\AuthService.Api.csproj", "{1BBA389D-5C57-4E27-A4A4-1DF250030D90}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway.Api", "Gateway.Api\Gateway.Api.csproj", "{3EA6FC8E-5D8C-4EB4-B226-5ED43EC55E12}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisitService.Api", "VisitService.Api\VisitService.Api.csproj", "{573EFA3E-81FC-42FD-8717-EC03782F9573}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A0064222-F864-409E-BF05-865DCC32B521}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{DC3D06F8-5CB6-458E-9AFF-AC0DEC8BC84F}"
+	ProjectSection(SolutionItems) = preProject
+		Gateway\Dockerfile = Gateway\Dockerfile
+		Gateway\nginx.conf = Gateway\nginx.conf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +25,6 @@ Global
 		{1BBA389D-5C57-4E27-A4A4-1DF250030D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BBA389D-5C57-4E27-A4A4-1DF250030D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BBA389D-5C57-4E27-A4A4-1DF250030D90}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3EA6FC8E-5D8C-4EB4-B226-5ED43EC55E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3EA6FC8E-5D8C-4EB4-B226-5ED43EC55E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3EA6FC8E-5D8C-4EB4-B226-5ED43EC55E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3EA6FC8E-5D8C-4EB4-B226-5ED43EC55E12}.Release|Any CPU.Build.0 = Release|Any CPU
 		{573EFA3E-81FC-42FD-8717-EC03782F9573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{573EFA3E-81FC-42FD-8717-EC03782F9573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{573EFA3E-81FC-42FD-8717-EC03782F9573}.Release|Any CPU.ActiveCfg = Release|Any CPU

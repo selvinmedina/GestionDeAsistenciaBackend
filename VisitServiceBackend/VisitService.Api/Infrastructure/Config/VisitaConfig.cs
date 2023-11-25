@@ -27,6 +27,9 @@ namespace VisitService.Api.Infrastructure.Config
             builder.Property(e => e.Comentarios)
                 .HasMaxLength(200);
 
+            builder.Property(e => e.ComentarioPersonaQueRecibe)
+                .HasMaxLength(200);
+
             builder.Property(e => e.EsVisitaAprobada)
                 .IsRequired();
 

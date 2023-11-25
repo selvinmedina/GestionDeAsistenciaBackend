@@ -1,13 +1,6 @@
 version: '3.4'
 
 services:
-  auth_service_api:
-    container_name: auth-service-api
-    image: ${DOCKER_REGISTRY-}auth_service_api
-    build:
-      context: .
-      dockerfile: AuthService.Api/Dockerfile
-
   gateway:
     container_name: gateway
     image: ${DOCKER_REGISTRY-}gateway

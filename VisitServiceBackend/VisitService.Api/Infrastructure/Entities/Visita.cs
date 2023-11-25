@@ -11,6 +11,7 @@
         public DateTime FechaEntrada { get; set; }
         public TimeSpan HoraEntrada { get; set; }
         public DateTime? FechaSalida { get; set; }
+        public bool Estado { get; set; }
         public TimeSpan? HoraSalida { get; set; }
         public string UsuarioAgregaId { get; set; } = null!;
         public string UsuarioApruebaId { get; set; } = null!;

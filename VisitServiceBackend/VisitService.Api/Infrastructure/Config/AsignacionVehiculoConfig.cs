@@ -18,6 +18,8 @@ namespace VisitService.Api.Infrastructure.Config
             builder.Property(av => av.FechaAsignacion)
                    .IsRequired();
 
+            builder.Property(e => e.Estado);
+
             // Configurar relaciones
             builder.HasOne(av => av.Visita)
                    .WithMany(v => v.AsignacionesVehiculo)

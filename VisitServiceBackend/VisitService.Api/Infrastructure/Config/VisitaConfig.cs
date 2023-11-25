@@ -41,6 +41,8 @@ namespace VisitService.Api.Infrastructure.Config
 
             builder.Property(e => e.FechaSalida);
 
+            builder.Property(e => e.Estado);
+
             builder.Property(e => e.HoraSalida);
 
             builder.Property(e => e.UsuarioAgregaId)

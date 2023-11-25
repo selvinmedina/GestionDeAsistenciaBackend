@@ -22,6 +22,8 @@ namespace VisitService.Api.Infrastructure.Config
             builder.Property(tt => tt.FechaCreacion)
                    .IsRequired();
 
+            builder.Property(e => e.Estado);
+
             // Propiedades opcionales
             builder.Property(tt => tt.FechaModificacion);
             builder.Property(tt => tt.UsuarioAgregaId)

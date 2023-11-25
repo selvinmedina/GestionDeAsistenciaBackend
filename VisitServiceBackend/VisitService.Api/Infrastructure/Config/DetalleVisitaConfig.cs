@@ -29,6 +29,9 @@ namespace VisitService.Api.Infrastructure.Config
             builder.Property(dv => dv.UsuarioAgregaId)
                    .IsRequired();
 
+            builder.Property(e => e.Estado);
+
+
             // Propiedades opcionales
             builder.Property(dv => dv.FechaModificacion);
             builder.Property(dv => dv.UsuarioModificaId);

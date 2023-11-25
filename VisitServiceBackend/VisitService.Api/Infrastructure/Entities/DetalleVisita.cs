@@ -11,6 +11,7 @@
         public DateTime? FechaModificacion { get; set; }
         public string UsuarioAgregaId { get; set; } = null!;
         public string UsuarioModificaId { get; set; } = null!;
+        public bool Estado { get; set; }
 
         public Visita Visita { get; set; } = null!;
     }

@@ -1,5 +1,7 @@
+using EntityFramework.Infrastructure.Core.UnitOfWork;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using VisitService.Api.Featues.Ubicaciones;
 using VisitService.Api.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +27,13 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>(options =>
     options.Password.RequireNonAlphanumeric = true;
 })
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddTransient<UbicacionService>();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseNpgsql("name=PostgresConnection"));
+
+builder.Services.AddScoped<IUnitOfWork, ApplicationUnitOfWork>();
 
 builder.Services.AddAuthorization();
 

@@ -11,5 +11,4 @@
         public string UsuarioAgregaId { get; set; } = null!;
         public string UsuarioModificaId { get; set; } = null!;
     }
-
 }

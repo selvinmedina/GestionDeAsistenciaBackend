@@ -1,3 +1,4 @@
+using AutoMapper;
 using EntityFramework.Infrastructure.Core.UnitOfWork;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +37,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IUnitOfWork, ApplicationUnitOfWork>();
 
 builder.Services.AddAuthorization();
+
+// add automapper based on .net 7.0 preview without startup.cs
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile<Mapeos>();
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+
+builder.Services.AddSingleton(mapper);
 
 var app = builder.Build();
 

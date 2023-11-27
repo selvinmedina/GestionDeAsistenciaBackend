@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using VisitService.Api.Featues.Ubicaciones;
+using VisitService.Api.Featues.Ubicaciones.Dtos;
 using VisitService.Api.Infrastructure.Entities;
 
 namespace VisitService.Api.Controllers
@@ -37,23 +39,20 @@ namespace VisitService.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddUbicacion([FromBody] Ubicacion ubicacion)
+        public async Task<ActionResult> AddUbicacion([FromBody] UbicacionDto ubicacion)
         {
-            await _ubicacionService.AddUbicacionAsync(ubicacion);
-            return CreatedAtAction(nameof(GetUbicacion), new { id = ubicacion.Id }, ubicacion);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var ubicacionNueva = await _ubicacionService.AddUbicacionAsync(ubicacion, userId);
+            return CreatedAtAction(nameof(GetUbicacion), new { id = ubicacionNueva.Id }, ubicacionNueva);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateUbicacion(int id, [FromBody] Ubicacion ubicacion)
+        public async Task<ActionResult> UpdateUbicacion(int id, [FromBody] UbicacionDto ubicacionDto)
         {
-            if (id != ubicacion.Id)
-            {
-                return BadRequest("El ID proporcionado no coincide con el ID de la ubicación.");
-            }
-
             try
             {
-                await _ubicacionService.UpdateUbicacionAsync(ubicacion);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                await _ubicacionService.UpdateUbicacionAsync(ubicacionDto, id, userId);
                 return NoContent();
             }
             catch (KeyNotFoundException)
@@ -67,7 +66,8 @@ namespace VisitService.Api.Controllers
         {
             try
             {
-                await _ubicacionService.ChangeStatusAsync(id, estado);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                await _ubicacionService.ChangeStatusAsync(id, estado, userId);
                 return NoContent();
             }
             catch (KeyNotFoundException)

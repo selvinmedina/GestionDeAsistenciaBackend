@@ -9,6 +9,6 @@
         public DateTime? FechaModificacion { get; set; }
         public bool Estado { get; set; }
         public string UsuarioAgregaId { get; set; } = null!;
-        public string UsuarioModificaId { get; set; } = null!;
+        public string? UsuarioModificaId { get; set; }
     }
 }

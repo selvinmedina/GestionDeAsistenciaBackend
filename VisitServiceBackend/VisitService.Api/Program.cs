@@ -2,7 +2,9 @@ using AutoMapper;
 using EntityFramework.Infrastructure.Core.UnitOfWork;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using VisitService.Api.Featues.Ubicaciones;
+using VisitService.Api.Features.TiposTransportes;
+using VisitService.Api.Features.Ubicaciones;
+using VisitService.Api.Features.Visitas;
 using VisitService.Api.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,6 +32,8 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddTransient<UbicacionService>();
+builder.Services.AddTransient<TipoTransporteService>();
+builder.Services.AddTransient<VisitaService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql("name=PostgresConnection"));

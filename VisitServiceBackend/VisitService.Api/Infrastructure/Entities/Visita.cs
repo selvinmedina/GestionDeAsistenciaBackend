@@ -3,7 +3,6 @@
     public class Visita
     {
         public int Id { get; set; }
-        public string Placa { get; set; } = null!;
         public string? Comentarios { get; set; }
         public string? ComentarioPersonaQueRecibe { get; set; }
 
@@ -16,6 +15,7 @@
         public string UsuarioAgregaId { get; set; } = null!;
         public string? UsuarioApruebaId { get; set; }
 
-        public ICollection<AsignacionVehiculo> AsignacionesVehiculo { get; set; } = null!;
+        public ICollection<AsignacionTransporte> AsignacionesTransporte { get; set; } = null!;
+        public ICollection<DetalleVisita> DetalleVisita { get; set; } = null!;
     }
 }

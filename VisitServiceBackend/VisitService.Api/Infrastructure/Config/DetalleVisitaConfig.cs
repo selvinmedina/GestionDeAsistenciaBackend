@@ -38,7 +38,7 @@ namespace VisitService.Api.Infrastructure.Config
 
             // Relación con Visita
             builder.HasOne(dv => dv.Visita)
-                   .WithMany()
+                   .WithMany(dv => dv.DetalleVisita)
                    .HasForeignKey(dv => dv.VisitaId)
                    .IsRequired();
         }

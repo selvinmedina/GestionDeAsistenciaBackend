@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using VisitService.Api.Featues.Ubicaciones;
-using VisitService.Api.Featues.Ubicaciones.Dtos;
+using VisitService.Api.Features.Ubicaciones;
+using VisitService.Api.Features.Ubicaciones.Dtos;
 using VisitService.Api.Infrastructure.Entities;
 
 namespace VisitService.Api.Controllers

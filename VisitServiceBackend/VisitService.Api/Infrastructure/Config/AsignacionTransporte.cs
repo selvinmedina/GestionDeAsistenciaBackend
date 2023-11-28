@@ -4,11 +4,11 @@ using VisitService.Api.Infrastructure.Entities;
 
 namespace VisitService.Api.Infrastructure.Config
 {
-    public class AsignacionVehiculoConfig : IEntityTypeConfiguration<AsignacionVehiculo>
+    public class AsignacionTransporte : IEntityTypeConfiguration<Entities.AsignacionTransporte>
     {
-        public void Configure(EntityTypeBuilder<AsignacionVehiculo> builder)
+        public void Configure(EntityTypeBuilder<Entities.AsignacionTransporte> builder)
         {
-            builder.ToTable("AsignacionVehiculo");
+            builder.ToTable("AsignacionTransporte");
 
             builder.HasKey(av => av.Id);
             builder.Property(av => av.Id)
@@ -22,7 +22,7 @@ namespace VisitService.Api.Infrastructure.Config
 
             // Configurar relaciones
             builder.HasOne(av => av.Visita)
-                   .WithMany(v => v.AsignacionesVehiculo)
+                   .WithMany(v => v.AsignacionesTransporte)
                    .HasForeignKey(av => av.VisitaId);
 
             builder.HasOne(av => av.TipoTransporte)

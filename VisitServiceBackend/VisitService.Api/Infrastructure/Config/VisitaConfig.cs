@@ -20,10 +20,6 @@ namespace VisitService.Api.Infrastructure.Config
                 .IsRequired()
                 .UseIdentityColumn();
 
-            // Configuración de las propiedades
-            builder.Property(e => e.Placa)
-                .HasMaxLength(50);
-
             builder.Property(e => e.Comentarios)
                 .HasMaxLength(200);
 
@@ -49,6 +45,10 @@ namespace VisitService.Api.Infrastructure.Config
                 .IsRequired();
 
             builder.Property(e => e.UsuarioApruebaId);
+
+            builder.HasMany(x => x.DetalleVisita)
+                .WithOne(x => x.Visita)
+                .HasForeignKey(x => x.VisitaId);
         }
     }
 }

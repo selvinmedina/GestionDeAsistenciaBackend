@@ -1,4 +1,4 @@
-﻿namespace VisitService.Api.Featues.Ubicaciones.Dtos
+﻿namespace VisitService.Api.Features.Ubicaciones.Dtos
 {
     public class UbicacionDto
     {

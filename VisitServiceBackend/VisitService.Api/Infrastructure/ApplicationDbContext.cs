@@ -19,7 +19,7 @@ namespace VisitService.Api.Infrastructure
             builder.AddConfiguration<DetalleVisitaConfig>();
             builder.AddConfiguration<TipoTransporteConfig>();
             builder.AddConfiguration<UbicacionConfig>();
-            builder.AddConfiguration<AsignacionVehiculoConfig>();
+            builder.AddConfiguration<AsignacionTransporte>();
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using EntityFramework.Infrastructure.Core.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
-using VisitService.Api.Featues.Ubicaciones.Dtos;
+using VisitService.Api.Features.Ubicaciones.Dtos;
 using VisitService.Api.Infrastructure.Entities;
 
-namespace VisitService.Api.Featues.Ubicaciones
+namespace VisitService.Api.Features.Ubicaciones
 {
     public class UbicacionService
     {

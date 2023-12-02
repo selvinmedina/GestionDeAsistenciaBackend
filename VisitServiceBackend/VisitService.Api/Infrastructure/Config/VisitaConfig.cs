@@ -45,6 +45,8 @@ namespace VisitService.Api.Infrastructure.Config
                 .IsRequired();
 
             builder.Property(e => e.UsuarioApruebaId);
+            builder.Property(e => e.UsuarioModificaId);
+            builder.Property(e => e.FechaModificacion);
 
             builder.HasMany(x => x.DetalleVisita)
                 .WithOne(x => x.Visita)

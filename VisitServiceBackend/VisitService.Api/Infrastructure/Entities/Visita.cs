@@ -2,6 +2,12 @@
 {
     public class Visita
     {
+        public Visita()
+        {
+            DetalleVisita = new List<DetalleVisita>();
+            AsignacionesTransporte = new List<AsignacionTransporte>();
+        }
+
         public int Id { get; set; }
         public string? Comentarios { get; set; }
         public string? ComentarioPersonaQueRecibe { get; set; }
@@ -14,6 +20,8 @@
         public TimeSpan? HoraSalida { get; set; }
         public string UsuarioAgregaId { get; set; } = null!;
         public string? UsuarioApruebaId { get; set; }
+        public string? UsuarioModificaId { get; set; }
+        public DateTime FechaModificacion { get; set; }
 
         public ICollection<AsignacionTransporte> AsignacionesTransporte { get; set; } = null!;
         public ICollection<DetalleVisita> DetalleVisita { get; set; } = null!;

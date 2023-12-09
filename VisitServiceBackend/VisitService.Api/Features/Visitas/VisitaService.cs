@@ -84,6 +84,47 @@ namespace VisitService.Api.Features.Visitas
             return visitasPendientes;
         }
 
+        public async Task<List<ControlVisitaDto>> ObtenerControlDeVisitas()
+        {
+            var visitasPendientes = await _unitOfWork.Repository<Visita>()
+                .AsQueryable()
+                .Include(x=> x.AsignacionesTransporte)
+                .Include(x=> x.DetalleVisita)
+                .Where(x => x.Estado)
+                .Select(visita => new ControlVisitaDto
+                {
+                    Id = visita.Id,
+                    Comentarios = visita.Comentarios,
+                    ComentarioPersonaQueRecibe = visita.ComentarioPersonaQueRecibe,
+                    EsVisitaAprobada = visita.EsVisitaAprobada,
+                    FechaEntrada = visita.FechaEntrada,
+                    HoraEntrada = visita.HoraEntrada,
+                    FechaSalida = visita.FechaSalida,
+                    Estado = visita.Estado,
+                    HoraSalida = visita.HoraSalida,
+                    UsuarioAgregaId = visita.UsuarioAgregaId,
+                    UsuarioApruebaId = visita.UsuarioApruebaId,
+                    UsuarioModificaId = visita.UsuarioModificaId,
+                    FechaModificacion = visita.FechaModificacion,
+                    AsignacionesTransporte = visita.AsignacionesTransporte.Select(at => new AsignacionTransporteDto
+                    {
+                        TipoTransporteId = at.TipoTransporteId,
+                        Placa = at.Placa,
+                        Color = at.Color
+                    }).ToList(),
+                    DetalleVisita = visita.DetalleVisita.Select(dv => new DetalleVisitaDto
+                    {
+                        Nombre = dv.Nombre,
+                        Apellido = dv.Apellido,
+                        Identidad = dv.Identidad
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            return visitasPendientes;
+        }
+
+
         public async Task RegistrarEntrada(int id, string userId, string? comentarioPersonaQueRecibe)
         {
             var visita = await _unitOfWork.Repository<Visita>()

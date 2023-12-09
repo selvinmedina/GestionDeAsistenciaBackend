@@ -15,6 +15,7 @@ namespace VisitService.Api.Infrastructure
             CreateMap<VisitaDto, Visita>().ReverseMap();
             CreateMap<AsignacionTransporteDto, AsignacionTransporte>().ReverseMap();
             CreateMap<DetalleVisitaDto, DetalleVisita>().ReverseMap();
+            CreateMap<ControlVisitaDto, Visita>().ReverseMap();
         }
     }
 }

@@ -29,11 +29,9 @@ namespace VisitService.Api.Infrastructure.Config
             builder.Property(e => e.EsVisitaAprobada)
                 .IsRequired();
 
-            builder.Property(e => e.FechaEntrada)
-                .IsRequired();
+            builder.Property(e => e.FechaEntrada);
 
-            builder.Property(e => e.HoraEntrada)
-                .IsRequired();
+            builder.Property(e => e.HoraEntrada);
 
             builder.Property(e => e.FechaSalida);
 

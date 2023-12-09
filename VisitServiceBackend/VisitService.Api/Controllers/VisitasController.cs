@@ -59,6 +59,14 @@ namespace VisitService.Api.Controllers
             return respuesta;
         }
 
+        [HttpGet("control-de-visitas")]
+        public async Task<List<ControlVisitaDto>> ControlDeVisitas()
+        {
+            var respuesta = await _visitaService.ObtenerControlDeVisitas();
+
+            return respuesta;
+        }
+
         [HttpPost("registrar-entrada/{id}")]
         public async Task<ActionResult> RegistrarEntrada(int id, [FromQuery] string? comentarioPersonaQueRecibe = null)
         {

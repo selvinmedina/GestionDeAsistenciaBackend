@@ -30,6 +30,8 @@ namespace VisitService.Api.Infrastructure.Config
                    .IsRequired();
 
             builder.Property(e => e.Estado);
+            builder.Property(e => e.FechaEntrada);
+            builder.Property(e => e.FechaSalida);
 
 
             // Propiedades opcionales

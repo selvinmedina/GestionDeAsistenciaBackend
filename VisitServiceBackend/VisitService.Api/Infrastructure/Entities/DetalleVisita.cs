@@ -13,6 +13,9 @@
         public string? UsuarioModificaId { get; set; }
         public bool Estado { get; set; }
 
+        public DateTime? FechaEntrada { get; set; }
+        public DateTime? FechaSalida { get; set; }
+
         public Visita Visita { get; set; } = null!;
     }
 
